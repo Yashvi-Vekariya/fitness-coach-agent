@@ -107,89 +107,6 @@ npm run dev
 
 ---
 
-## 🌐 Deployment
-
-### Deploy Backend on Render (Free)
-
-1. Push code to GitHub
-2. Go to https://render.com → New → Web Service
-3. Connect your GitHub repo
-4. Settings:
-   - **Root Directory**: `backend`
-   - **Build Command**: `npm install && npx tsc`
-   - **Start Command**: `node dist/index.js`
-   - **Environment**: Node
-5. Add Environment Variables:
-   - `GROQ_API_KEY`
-   - `GEMINI_API_KEY`
-   - `FRONTEND_URL` (your Vercel URL after deploying frontend)
-   - `PORT` = 3000
-6. Deploy!
-
-Copy your Render URL (e.g., `https://fitcoach-api.onrender.com`)
-
-### Deploy Telegram Bot on Render (Free)
-
-1. Render → New → Background Worker
-2. Connect same repo
-3. Settings:
-   - **Root Directory**: `telegram-bot`
-   - **Build Command**: `npm install && npx tsc`
-   - **Start Command**: `node dist/src/bot.js`
-4. Add Environment Variables:
-   - `TELEGRAM_BOT_TOKEN`
-   - `BACKEND_URL` = your Render backend URL
-5. Deploy!
-
-### Deploy Frontend on Vercel (Free)
-
-1. Go to https://vercel.com → New Project
-2. Import your GitHub repo
-3. Settings:
-   - **Root Directory**: `frontend`
-   - **Framework**: Vite
-   - **Build Command**: `npm run build`
-   - **Output Directory**: `dist`
-4. Add Environment Variable:
-   - `VITE_API_URL` = `https://your-render-backend.onrender.com/api`
-5. Deploy!
-
-6. **IMPORTANT**: Update `frontend/vercel.json` with your Render backend URL:
-```json
-{
-  "rewrites": [
-    {
-      "source": "/api/:path*",
-      "destination": "https://your-render-backend.onrender.com/api/:path*"
-    }
-  ]
-}
-```
-
-7. Go back to Render → Backend → Add env var:
-   - `FRONTEND_URL` = your Vercel URL
-
----
-
-## 🤖 Getting API Keys
-
-### Groq API Key (Free)
-1. Go to https://console.groq.com
-2. Sign up / Login
-3. Go to API Keys → Create API Key
-4. Copy the key starting with `gsk_`
-
-### Gemini API Key (Free)
-1. Go to https://aistudio.google.com/apikey
-2. Sign in with Google
-3. Click "Create API Key"
-4. Copy the key starting with `AIza`
-
-### Telegram Bot Token
-1. Open Telegram, search for `@BotFather`
-2. Send `/newbot`
-3. Follow prompts (choose name and username)
-4. Copy the token (format: `123456:ABCdefGHI...`)
 
 ---
 
@@ -222,19 +139,6 @@ fitness-coach-agent/
 ├── render.yaml
 └── README.md
 ```
-
----
-
-## 💰 Cost: ₹0 (Completely Free)
-
-| Service | Cost |
-|---------|------|
-| Groq API | Free |
-| Gemini API | Free |
-| Render (Backend + Bot) | Free |
-| Vercel (Frontend) | Free |
-| Telegram Bot API | Free |
-| **Total** | **₹0** |
 
 ---
 
