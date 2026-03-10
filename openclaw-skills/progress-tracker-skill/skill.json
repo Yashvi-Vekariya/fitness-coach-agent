@@ -1,0 +1,6 @@
+{
+  "name": "progress-tracker",
+  "version": "1.0.0",
+  "description": "Track fitness progress including weight, workouts, and nutrition",
+  "triggers": ["log weight", "track", "progress", "report", "stats"]
+}

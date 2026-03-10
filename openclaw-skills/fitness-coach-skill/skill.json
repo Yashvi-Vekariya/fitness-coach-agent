@@ -1,0 +1,8 @@
+{
+  "name": "fitness-coach",
+  "version": "1.0.0",
+  "description": "AI Fitness Coach skill with workout plans, nutrition advice, progress tracking, and gamification",
+  "author": "Yashvi",
+  "triggers": ["workout", "exercise", "fitness", "gym", "diet", "nutrition", "calorie", "weight", "bmi", "progress", "muscle", "protein"],
+  "capabilities": ["workout_planning", "nutrition_advice", "progress_tracking", "bmi_calculation", "meal_analysis", "gamification"]
+}

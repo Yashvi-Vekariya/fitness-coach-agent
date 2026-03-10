@@ -1,0 +1,43 @@
+# render.yaml - Render Blueprint
+# Place this in your repo root for auto-deploy on Render
+
+services:
+  # Backend API
+  - type: web
+    name: fitcoach-api
+    runtime: node
+    region: oregon
+    plan: free
+    rootDir: backend
+    buildCommand: npm install && npx tsc
+    startCommand: node dist/index.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3000
+      - key: GROQ_API_KEY
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: FRONTEND_URL
+        sync: false
+    disk:
+      name: fitcoach-data
+      mountPath: /app/backend/data
+      sizeGB: 1
+
+  # Telegram Bot (Background Worker)
+  - type: worker
+    name: fitcoach-telegram
+    runtime: node
+    region: oregon
+    plan: free
+    rootDir: telegram-bot
+    buildCommand: npm install && npx tsc
+    startCommand: node dist/src/bot.js
+    envVars:
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+      - key: BACKEND_URL
+        sync: false
