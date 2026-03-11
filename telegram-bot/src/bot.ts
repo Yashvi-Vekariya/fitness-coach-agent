@@ -60,16 +60,15 @@ bot.onText(/\/start/, async (msg) => {
     `Or use the menu below 👇`;
 
   bot.sendMessage(msg.chat.id, welcome, {
-    reply_markup: {
-      keyboard: [
-        ['💪 Workout Plan', '🥗 Nutrition Advice'],
-        ['📊 My Progress', '🏆 My Stats'],
-        ['📏 BMI Calculator', '🔍 Exercise Search'],
-        ['⚙️ Setup Profile', '❓ Help'],
-      ],
-      resize_keyboard: true,
-      one_time_keyboard: false,
-    },
+   reply_markup: {
+  keyboard: [
+    [{ text: "🏋️ Workout Plan" }, { text: "🥗 Nutrition" }],
+    [{ text: "📊 Progress" }, { text: "📅 Schedule" }],
+    [{ text: "⚙️ Settings" }, { text: "❓ Help" }]
+  ],
+  resize_keyboard: true,
+  one_time_keyboard: false,
+  },
   });
 });
 
