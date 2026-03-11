@@ -1,4 +1,4 @@
-import exercisesData from './data/exercises.json';
+const exercisesData = require('./data/exercises.json');
 
 interface KnowledgeEntry {
   topic: string;
